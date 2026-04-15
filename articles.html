@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eksplorasi koleksi artikel, tutorial coding, dan wawasan teknologi terbaru dari Bagus Batara. Tingkatkan keahlian pemrograman Anda dengan panduan praktis kami.">
+    <meta name="keywords" content="Blog Teknologi, Tutorial Web Development, Tips Coding React, Panduan Pemrograman PHP, Wawasan AI, UI/UX Trends 2026">
+    <meta name="author" content="Bagus Batara">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bagusbatara.dev/articles.html">
+    <meta property="og:title" content="Artikel & Wawasan Teknologi | Bagus Batara">
+    <meta property="og:description" content="Eksplorasi koleksi artikel, tutorial coding, dan wawasan teknologi terbaru dari Bagus Batara.">
+    <meta property="og:image" content="https://picsum.photos/seed/articles-preview/1200/630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%233b82f6%22>B</text></svg>">
+    
+    <title>Artikel | Bagus Batara</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Native CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolled">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">B<span class="text-gradient">.Dev</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto glass rounded-pill px-4 py-1 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="articles.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-section py-5 mt-5">
+        <div class="parallax-bg"></div>
+        <div class="container pt-5 hero-content">
+            <div class="reveal active">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-primary" aria-current="page">Artikel</li>
+                    </ol>
+                </nav>
+                <h1 class="display-3 fw-bold mb-4">Wawasan & <span class="text-gradient">Artikel</span></h1>
+                <p class="lead text-muted max-w-2xl">
+                    Berbagi pengetahuan, tutorial, dan pandangan saya mengenai dunia pengembangan web dan teknologi masa kini.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Articles Grid -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Skeleton Grid -->
+            <div class="row g-4 skeleton-wrapper">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-modern h-100 p-3">
+                        <div class="skeleton skeleton-img mb-3"></div>
+                        <div class="skeleton skeleton-title mb-2"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-modern h-100 p-3">
+                        <div class="skeleton skeleton-img mb-3"></div>
+                        <div class="skeleton skeleton-title mb-2"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card-modern h-100 p-3">
+                        <div class="skeleton skeleton-img mb-3"></div>
+                        <div class="skeleton skeleton-title mb-2"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 content-hidden" id="articles-grid">
+                <!-- Articles will be injected by JS or added manually -->
+                <!-- Article 1 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <article class="card-modern h-100 overflow-hidden group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/coding/800/500" class="card-img-top transition-all group-hover-scale" alt="Modern Web Development" referrerPolicy="no-referrer">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary px-3 py-2">Teknologi</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-muted small mb-2">14 April 2026 • 5 Menit Baca</div>
+                            <h4 class="fw-bold mb-3 text-white">Masa Depan Pengembangan Web dengan AI</h4>
+                            <p class="text-muted small mb-4">Bagaimana kecerdasan buatan mengubah cara kita menulis kode dan membangun aplikasi di tahun 2026.</p>
+                            <a href="detailartikel.html?id=ai-future" class="text-primary text-decoration-none fw-bold d-inline-flex align-items-center gap-2 hover-gap">
+                                Baca Selengkapnya <i class="fas fa-arrow-right small"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <article class="card-modern h-100 overflow-hidden group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/design/800/500" class="card-img-top transition-all group-hover-scale" alt="UI Design" referrerPolicy="no-referrer">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary px-3 py-2">Desain</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-muted small mb-2">10 April 2026 • 8 Menit Baca</div>
+                            <h4 class="fw-bold mb-3 text-white">Prinsip Glassmorphism dalam UI Modern</h4>
+                            <p class="text-muted small mb-4">Panduan mendalam tentang cara mengimplementasikan efek kaca yang elegan menggunakan CSS murni.</p>
+                            <a href="detailartikel.html?id=glassmorphism" class="text-primary text-decoration-none fw-bold d-inline-flex align-items-center gap-2 hover-gap">
+                                Baca Selengkapnya <i class="fas fa-arrow-right small"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <article class="card-modern h-100 overflow-hidden group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/performance/800/500" class="card-img-top transition-all group-hover-scale" alt="Performance" referrerPolicy="no-referrer">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary px-3 py-2">Tips</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-muted small mb-2">05 April 2026 • 6 Menit Baca</div>
+                            <h4 class="fw-bold mb-3 text-white">Optimasi Performa Website di Tahun 2026</h4>
+                            <p class="text-muted small mb-4">Teknik terbaru untuk memastikan website Anda memuat secepat kilat di berbagai perangkat.</p>
+                            <a href="detailartikel.html?id=performance" class="text-primary text-decoration-none fw-bold d-inline-flex align-items-center gap-2 hover-gap">
+                                Baca Selengkapnya <i class="fas fa-arrow-right small"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row g-5 mb-5 text-start">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold fs-3 mb-4 d-block" href="index.html">B<span class="text-gradient">.Dev</span></a>
+                    <p class="text-muted small pe-lg-5">
+                        Membangun masa depan digital dengan kode yang bersih dan desain yang bermakna.
+                    </p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4">Navigasi</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="projects.html">Proyek</a></li>
+                        <li><a href="articles.html">Artikel</a></li>
+                        <li><a href="index.html#testimonials">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4">Layanan</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="fw-bold mb-4">Kontak</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="text-muted small mb-2"><i class="fas fa-envelope me-2"></i> bagusbatr@gmail.com</li>
+                        <li class="text-muted small mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jakarta Selatan, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-10 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted small mb-0">&copy; 2026 Bagus Batara. All rights reserved. | <a href="login.html" class="text-muted text-decoration-none hover-white">Login</a></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <p class="text-muted small mb-0">Dibuat dengan <i class="fas fa-heart text-danger mx-1"></i> untuk Web Modern.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Native JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pelajari detail teknis, tantangan, dan solusi dari proyek pengembangan web Bagus Batara. Lihat bagaimana teknologi modern diimplementasikan untuk hasil maksimal.">
+    <meta name="keywords" content="Studi Kasus Proyek, Implementasi Full Stack, Arsitektur Web, Fitur Aplikasi Modern, Breakdown Teknis Programmer">
+    <meta name="author" content="Bagus Batara">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bagusbatara.dev/detailproject.html">
+    <meta property="og:title" content="Detail Proyek | Bagus Batara">
+    <meta property="og:description" content="Pelajari detail teknis, tantangan, dan solusi dari proyek pengembangan web Bagus Batara.">
+    <meta property="og:image" content="https://picsum.photos/seed/detail-preview/1200/630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%233b82f6%22>B</text></svg>">
+    
+    <title>Detail Proyek | Bagus Batara</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Native CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .project-header {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        .tech-stack-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tech-stack-item {
+            padding: 8px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            backdrop-filter: blur(10px);
+        }
+        /* View Button Overlay */
+        .view-btn-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .card-modern:hover .view-btn-overlay {
+            opacity: 1;
+        }
+        .btn-view {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .btn-view:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+        /* Lightbox Modal */
+        .modal-content.lightbox-content {
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+        }
+        .modal-header.lightbox-header {
+            border-bottom: none;
+            padding: 20px 30px 0;
+        }
+        .lightbox-img {
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolled">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">B<span class="text-gradient">.Dev</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto glass rounded-pill px-4 py-1 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="projects.html">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="articles.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Detail Content -->
+    <div id="project-detail-container">
+        <!-- Content will be injected by JavaScript based on URL ID -->
+        <div class="container py-5 mt-5 text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row g-5 mb-5 text-start">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold fs-3 mb-4 d-block" href="index.html">B<span class="text-gradient">.Dev</span></a>
+                    <p class="text-muted small pe-lg-5">
+                        Membangun solusi digital berkualitas tinggi dengan fokus pada performa, keamanan, dan pengalaman pengguna yang luar biasa.
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 ms-lg-auto">
+                    <h6 class="fw-bold text-white mb-4">Navigasi</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="index.html#skills">Keahlian</a></li>
+                        <li><a href="projects.html">Proyek</a></li>
+                        <li><a href="articles.html">Artikel</a></li>
+                        <li><a href="index.html#testimonials">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold text-white mb-4">Layanan</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold text-white mb-4">Kontak</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span class="small">bagus@example.com</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span class="small">+62 812 3456 7890</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span class="small">Jakarta, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-10 mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0">&copy; 2024 Bagus Batara. All Rights Reserved. | <a href="login.html" class="text-muted text-decoration-none hover-white">Login</a></p>
+                <p class="text-muted small mb-0">Built with <i class="fas fa-heart text-danger mx-1"></i> & <i class="fas fa-code text-primary mx-1"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Detail Project Logic -->
+    <script>
+        const projectsData = {
+            "1": {
+                title: "E-Commerce Pro",
+                category: "Fullstack Development",
+                year: "2023",
+                images: [
+                    "https://picsum.photos/seed/shop1/1200/600",
+                    "https://picsum.photos/seed/shop2/1200/600",
+                    "https://picsum.photos/seed/shop3/1200/600"
+                ],
+                description: "Platform e-commerce komprehensif yang dirancang untuk memberikan pengalaman belanja yang mulus. Sistem ini mencakup manajemen inventaris real-time, integrasi gateway pembayaran, dan panel admin yang intuitif.",
+                features: [
+                    "Sistem Otentikasi Pengguna & Keamanan",
+                    "Manajemen Produk & Kategori Dinamis",
+                    "Keranjang Belanja & Checkout Terintegrasi",
+                    "Dashboard Admin untuk Laporan Penjualan",
+                    "Desain Responsif untuk Semua Perangkat"
+                ],
+                stack: ["PHP", "MySQL", "Bootstrap 5", "JavaScript", "jQuery"],
+                github: "#",
+                demo: "#"
+            },
+            "2": {
+                title: "Task Management App",
+                category: "Frontend Development",
+                year: "2023",
+                images: [
+                    "https://picsum.photos/seed/task1/1200/600",
+                    "https://picsum.photos/seed/task2/1200/600",
+                    "https://picsum.photos/seed/task3/1200/600"
+                ],
+                description: "Aplikasi produktivitas yang membantu pengguna mengelola tugas harian mereka dengan efisien. Fokus utama proyek ini adalah pada antarmuka pengguna yang bersih dan interaksi yang responsif.",
+                features: [
+                    "Drag and Drop Task Management",
+                    "Prioritas Tugas & Label Warna",
+                    "Notifikasi Deadline Otomatis",
+                    "Sinkronisasi Cloud Real-time",
+                    "Mode Gelap & Terang"
+                ],
+                stack: ["JavaScript", "Node.js", "Tailwind CSS", "HTML5", "CSS3"],
+                github: "#",
+                demo: "#"
+            },
+            "3": {
+                title: "Business Landing Page",
+                category: "UI/UX Design",
+                year: "2022",
+                images: [
+                    "https://picsum.photos/seed/landing1/1200/600",
+                    "https://picsum.photos/seed/landing2/1200/600",
+                    "https://picsum.photos/seed/landing3/1200/600"
+                ],
+                description: "Halaman arahan modern yang dirancang khusus untuk startup teknologi. Mengutamakan konversi tinggi melalui desain yang menarik dan performa pemuatan yang cepat.",
+                features: [
+                    "Optimasi SEO & Kecepatan Pemuatan",
+                    "Animasi Scroll yang Halus",
+                    "Formulir Kontak Terintegrasi",
+                    "Galeri Portofolio Interaktif",
+                    "Testimoni Pelanggan & FAQ"
+                ],
+                stack: ["HTML5", "CSS3", "Bootstrap 5", "Animate.css", "AOS"],
+                github: "#",
+                demo: "#"
+            },
+            "4": {
+                title: "Weather Dashboard",
+                category: "API Integration",
+                year: "2022",
+                images: [
+                    "https://picsum.photos/seed/weather1/1200/600",
+                    "https://picsum.photos/seed/weather2/1200/600",
+                    "https://picsum.photos/seed/weather3/1200/600"
+                ],
+                description: "Aplikasi prakiraan cuaca yang mengambil data real-time dari OpenWeatherMap API. Menyediakan visualisasi data cuaca yang mendalam untuk berbagai lokasi di seluruh dunia.",
+                features: [
+                    "Pencarian Lokasi Global",
+                    "Grafik Prakiraan 7 Hari",
+                    "Deteksi Lokasi Pengguna Otomatis",
+                    "Visualisasi Data dengan Chart.js",
+                    "Informasi Kelembaban & Kecepatan Angin"
+                ],
+                stack: ["JavaScript", "Chart.js", "OpenWeather API", "CSS Native"],
+                github: "#",
+                demo: "#"
+            },
+            "5": {
+                title: "Personal Blog CMS",
+                category: "Fullstack Development",
+                year: "2022",
+                images: [
+                    "https://picsum.photos/seed/blog1/1200/600",
+                    "https://picsum.photos/seed/blog2/1200/600",
+                    "https://picsum.photos/seed/blog3/1200/600"
+                ],
+                description: "Sistem manajemen konten yang ringan untuk penulis blog pribadi. Memungkinkan pengguna untuk menulis, mengedit, dan mempublikasikan artikel dengan mudah tanpa pengetahuan teknis.",
+                features: [
+                    "Editor Teks Kaya (WYSIWYG)",
+                    "Manajemen Komentar & Moderasi",
+                    "Sistem Tagging & Kategori",
+                    "Optimasi Gambar Otomatis",
+                    "Arsip Artikel Berdasarkan Tanggal"
+                ],
+                stack: ["PHP", "MySQL", "AdminLTE", "JavaScript"],
+                github: "#",
+                demo: "#"
+            },
+            "6": {
+                title: "Modern Portfolio v1",
+                category: "Frontend Development",
+                year: "2024",
+                images: [
+                    "https://picsum.photos/seed/portfolio1/1200/600",
+                    "https://picsum.photos/seed/portfolio2/1200/600",
+                    "https://picsum.photos/seed/portfolio3/1200/600"
+                ],
+                description: "Versi pertama dari portofolio digital saya. Proyek ini merupakan eksperimen dalam menggunakan CSS modern dan JavaScript native untuk menciptakan pengalaman pengguna yang unik.",
+                features: [
+                    "Desain Minimalis & Modern",
+                    "Navigasi Satu Halaman (SPA)",
+                    "Efek Glassmorphism",
+                    "Formulir Kontak Berbasis AJAX",
+                    "Struktur Kode yang Bersih & Terorganisir"
+                ],
+                stack: ["HTML5", "CSS Native", "JavaScript", "Bootstrap 5"],
+                github: "#",
+                demo: "#"
+            }
+        };
+
+        function renderDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+            const container = document.getElementById('project-detail-container');
+
+            const project = projectsData[projectId];
+
+            if (!project) {
+                container.innerHTML = `
+                    <div class="container py-5 mt-5 text-center">
+                        <h2 class="text-white">Proyek Tidak Ditemukan</h2>
+                        <a href="projects.html" class="btn btn-primary mt-3">Kembali ke Daftar Proyek</a>
+                    </div>
+                `;
+                return;
+            }
+
+            window.openLightbox = function() {
+                const carouselElement = document.getElementById('projectCarousel');
+                const activeItem = carouselElement.querySelector('.carousel-item.active');
+                const allItems = Array.from(carouselElement.querySelectorAll('.carousel-item'));
+                const activeIndex = allItems.indexOf(activeItem);
+
+                const modalCarouselInner = document.getElementById('modalCarouselInner');
+                const modalCarouselIndicators = document.getElementById('modalCarouselIndicators');
+                
+                // Populate modal carousel
+                modalCarouselInner.innerHTML = project.images.map((img, index) => `
+                    <div class="carousel-item ${index === activeIndex ? 'active' : ''}">
+                        <img src="${img}" class="d-block w-100 lightbox-img" alt="${project.title} slide ${index + 1}" referrerPolicy="no-referrer">
+                    </div>
+                `).join('');
+
+                modalCarouselIndicators.innerHTML = project.images.map((_, i) => `
+                    <button type="button" data-bs-target="#modalProjectCarousel" data-bs-slide-to="${i}" class="${i === activeIndex ? 'active' : ''}" aria-current="${i === activeIndex ? 'true' : 'false'}" aria-label="Slide ${i + 1}"></button>
+                `).join('');
+
+                const myModal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+                myModal.show();
+                
+                // Ensure the modal carousel starts at the correct index
+                const modalCarousel = new bootstrap.Carousel(document.getElementById('modalProjectCarousel'));
+                modalCarousel.to(activeIndex);
+            };
+
+            const carouselItems = project.images.map((img, index) => `
+                <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                    <img src="${img}" class="d-block w-100 rounded-3 lightbox-trigger" alt="${project.title} slide ${index + 1}" referrerPolicy="no-referrer" style="cursor: zoom-in;">
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <header class="hero-section project-header reveal active">
+                    <div class="parallax-bg"></div>
+                    <div class="container hero-content">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="mb-4">
+                                    <a href="projects.html" class="text-muted text-decoration-none d-inline-flex align-items-center gap-2 transition-all hover-white">
+                                        <i class="fas fa-arrow-left small"></i> <span>Kembali ke Daftar Proyek</span>
+                                    </a>
+                                </div>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="projects.html" class="text-muted text-decoration-none">Proyek</a></li>
+                                        <li class="breadcrumb-item active text-primary" aria-current="page">${project.title}</li>
+                                    </ol>
+                                </nav>
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-20 mb-3">${project.category}</span>
+                                <h1 class="display-3 fw-bold mb-4 text-white">${project.title}</h1>
+                                <p class="lead text-light opacity-90 mb-5">${project.description}</p>
+                                <div class="d-flex gap-3">
+                                    <a href="${project.demo}" class="btn-modern btn-primary-modern">Live Demo <i class="fas fa-external-link-alt ms-2"></i></a>
+                                    <a href="${project.github}" class="btn-modern btn-outline-modern">Source Code <i class="fab fa-github ms-2"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-5 mt-lg-0">
+                                <div class="card-modern p-2 overflow-hidden position-relative">
+                                    <!-- View Button Overlay -->
+                                    <div class="view-btn-overlay">
+                                        <button class="btn-view" onclick="openLightbox()" title="Lihat Gambar Lebih Besar">
+                                            <i class="fas fa-expand-alt"></i>
+                                        </button>
+                                    </div>
+
+                                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">
+                                            ${project.images.map((_, i) => `
+                                                <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}" aria-current="${i === 0 ? 'true' : 'false'}" aria-label="Slide ${i + 1}"></button>
+                                            `).join('')}
+                                        </div>
+                                        <div class="carousel-inner">
+                                            ${carouselItems}
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Lightbox Modal -->
+                <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content lightbox-content">
+                            <div class="modal-header lightbox-header">
+                                <h5 class="modal-title text-white" id="lightboxTitle">${project.title}</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-4">
+                                <div id="modalProjectCarousel" class="carousel slide" data-bs-ride="false">
+                                    <div class="carousel-indicators" id="modalCarouselIndicators">
+                                        <!-- Indicators injected by JS -->
+                                    </div>
+                                    <div class="carousel-inner" id="modalCarouselInner">
+                                        <!-- Items injected by JS -->
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#modalProjectCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#modalProjectCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="py-5">
+                    <div class="container">
+                        <div class="row g-5">
+                            <div class="col-lg-8">
+                                <div class="reveal active mb-5">
+                                    <h3 class="fw-bold mb-4 text-white">Fitur Utama</h3>
+                                    <ul class="list-unstyled">
+                                        ${project.features.map(feature => `
+                                            <li class="mb-3 d-flex align-items-center text-light opacity-90">
+                                                <i class="fas fa-check-circle text-primary me-3"></i> ${feature}
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                                <div class="reveal active">
+                                    <h3 class="fw-bold mb-4 text-white">Tentang Proyek</h3>
+                                    <p class="text-light opacity-90">
+                                        Proyek ini dikembangkan pada tahun ${project.year} sebagai bagian dari portofolio profesional saya. 
+                                        Tujuan utamanya adalah untuk mendemonstrasikan kemampuan dalam membangun aplikasi yang fungsional 
+                                        dengan standar industri terkini. Setiap aspek dari proyek ini, mulai dari arsitektur database 
+                                        hingga antarmuka pengguna, telah direncanakan dengan matang untuk memastikan kualitas terbaik.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card-modern p-4 sticky-top" style="top: 100px;">
+                                    <h4 class="fw-bold mb-4 text-white">Tech Stack</h4>
+                                    <div class="tech-stack-list">
+                                        ${project.stack.map(tech => `
+                                            <span class="tech-stack-item">${tech}</span>
+                                        `).join('')}
+                                    </div>
+                                    <hr class="border-secondary opacity-20 my-4">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted small">Tahun</span>
+                                        <span class="text-light small">${project.year}</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-muted small">Kategori</span>
+                                        <span class="text-light small">${project.category}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDetail);
+    </script>
+</body>
+</html>

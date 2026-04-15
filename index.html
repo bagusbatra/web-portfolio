@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Bagus Batara - Full Stack Web Developer yang ahli dalam membangun aplikasi web modern menggunakan React, Node.js, dan PHP. Lihat proyek inovatif dan artikel teknologi terbaru saya.">
+    <meta name="keywords" content="Bagus Batara, Full Stack Developer, Web Developer Jakarta, Portofolio Programmer, React Developer, PHP Laravel, Node.js, UI/UX Design, Solusi Digital Modern">
+    <meta name="author" content="Bagus Batara">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bagusbatara.dev/">
+    <meta property="og:title" content="Bagus Batara | Junior Web Programmer">
+    <meta property="og:description" content="Portofolio Bagus Batara - Full Stack Web Developer yang ahli dalam membangun aplikasi web modern menggunakan React, Node.js, dan PHP.">
+    <meta property="og:image" content="https://picsum.photos/seed/portfolio-preview/1200/630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bagusbatara.dev/">
+    <meta property="twitter:title" content="Bagus Batara | Junior Web Programmer">
+    <meta property="twitter:description" content="Portofolio Bagus Batara - Full Stack Web Developer yang ahli dalam membangun aplikasi web modern.">
+    <meta property="twitter:image" content="https://picsum.photos/seed/portfolio-preview/1200/630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%233b82f6%22>B</text></svg>">
+    
+    <title>Bagus Batara | Junior Web Programmer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Native CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#">B<span class="text-gradient">.Dev</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto glass rounded-pill px-4 py-1 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimoni</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section skeleton-wrapper">
+        <div class="parallax-bg"></div>
+        <div class="container text-center hero-content">
+            <!-- Skeleton Elements -->
+            <div class="skeleton skeleton-title mx-auto mb-4"></div>
+            <div class="skeleton mx-auto mb-5" style="width: 40%; height: 40px;"></div>
+            <div class="d-flex justify-content-center gap-3">
+                <div class="skeleton" style="width: 150px; height: 50px; border-radius: 12px;"></div>
+                <div class="skeleton" style="width: 150px; height: 50px; border-radius: 12px;"></div>
+            </div>
+
+            <div class="reveal content-hidden">
+                <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary px-3 py-2 mb-4 border border-primary border-opacity-20">
+                    Available for Hire
+                </span>
+                <h1 class="display-1 fw-bold mb-4">Membangun <span class="text-gradient">Masa Depan</span> Digital</h1>
+                <h2 class="h3 mb-5 text-muted fw-light" id="typing-text"></h2>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#projects" class="btn-modern btn-primary-modern">
+                        Lihat Proyek <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="#contact" class="btn-modern btn-outline-modern">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal">
+                    <div class="about-img-container">
+                        <div class="about-img-glow"></div>
+                        <div class="position-relative about-img-wrapper">
+                            <img src="https://picsum.photos/seed/tech/800/800" alt="About Me" class="img-fluid rounded-4 shadow-2xl floating-img" referrerPolicy="no-referrer">
+                            <div class="position-absolute bottom-0 end-0 p-4 glass rounded-4 m-4 d-none d-md-block experience-badge">
+                                <h4 class="fw-bold mb-0 text-white">1+ Tahun</h4>
+                                <p class="text-primary small mb-0 fw-bold">Pengalaman Coding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <h2 class="display-5 fw-bold mb-4">Tentang <span class="text-gradient">Saya</span></h2>
+                    <p class="lead text-muted mb-4">
+                        Saya adalah Junior Web Programmer yang berdedikasi untuk menciptakan solusi digital yang elegan dan fungsional.
+                    </p>
+                    <p class="text-muted mb-5">
+                        Dengan latar belakang Teknik Informatika, saya menggabungkan logika pemrograman yang kuat dengan estetika desain modern. Saya percaya bahwa setiap baris kode harus memberikan nilai nyata bagi pengguna.
+                    </p>
+                    <div class="mb-5">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="card-modern p-4">
+                                <h5 class="fw-bold mb-2">Pendidikan</h5>
+                                <p class="text-muted small mb-0">S1 Teknik Informatika<br>Universitas Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card-modern p-4">
+                                <h5 class="fw-bold mb-2">Lokasi</h5>
+                                <p class="text-muted small mb-0">Jakarta Selatan,<br>Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                            <a href="about.html" class="btn-modern btn-primary-modern mt-5">
+                            Selengkapnya Tentang Saya <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-dark-surface">
+        <div class="container">
+            <h2 class="section-title reveal">Keahlian <span class="text-gradient">Teknis</span></h2>
+            <div class="row g-4">
+                <div class="col-md-3 reveal">
+                    <div class="card-modern">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Frontend</h4>
+                        <p class="text-muted small">HTML5, CSS3, JavaScript (ES6+), Bootstrap, Tailwind CSS.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 reveal">
+                    <div class="card-modern">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Backend</h4>
+                        <p class="text-muted small">PHP, Node.js, Express, RESTful API Development.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 reveal">
+                    <div class="card-modern">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Database</h4>
+                        <p class="text-muted small">MySQL, PostgreSQL, MongoDB, Database Design.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 reveal">
+                    <div class="card-modern">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Tools</h4>
+                        <p class="text-muted small">Git, Docker, VS Code, Figma, Postman.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title reveal">Proyek <span class="text-gradient">Pilihan</span></h2>
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="project-card-modern">
+                        <div class="project-img-wrapper">
+                            <img src="https://picsum.photos/seed/shop/800/600" alt="Project 1" referrerPolicy="no-referrer">
+                            <div class="project-overlay">
+                                <div>
+                                    <h4 class="fw-bold text-white mb-2">E-Commerce Pro</h4>
+                                    <p class="text-white-50 small mb-0">PHP, MySQL, Bootstrap</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-3">E-Commerce Sederhana</h5>
+                            <p class="text-muted small mb-4">Aplikasi toko online dengan fitur keranjang belanja dan manajemen stok.</p>
+                            <a href="#" class="text-primary text-decoration-none small fw-bold">Detail Proyek <i class="fas fa-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="project-card-modern">
+                        <div class="project-img-wrapper">
+                            <img src="https://picsum.photos/seed/task/800/600" alt="Project 2" referrerPolicy="no-referrer">
+                            <div class="project-overlay">
+                                <div>
+                                    <h4 class="fw-bold text-white mb-2">Task Manager</h4>
+                                    <p class="text-white-50 small mb-0">JavaScript, Node.js</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-3">Sistem Manajemen Tugas</h5>
+                            <p class="text-muted small mb-4">Aplikasi untuk mengelola tugas harian dengan antarmuka yang responsif.</p>
+                            <a href="#" class="text-primary text-decoration-none small fw-bold">Detail Proyek <i class="fas fa-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="project-card-modern">
+                        <div class="project-img-wrapper">
+                            <img src="https://picsum.photos/seed/landing/800/600" alt="Project 3" referrerPolicy="no-referrer">
+                            <div class="project-overlay">
+                                <div>
+                                    <h4 class="fw-bold text-white mb-2">Business Landing</h4>
+                                    <p class="text-white-50 small mb-0">HTML, CSS, JS</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="fw-bold mb-3">Landing Page Bisnis</h5>
+                            <p class="text-muted small mb-4">Halaman arahan profesional untuk perusahaan rintisan menggunakan Bootstrap.</p>
+                            <a href="#" class="text-primary text-decoration-none small fw-bold">Detail Proyek <i class="fas fa-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 reveal">
+                <a href="projects.html" class="btn-modern btn-primary-modern">
+                    Lihat Semua Proyek
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5 reveal">
+                <div>
+                    <h2 class="display-5 fw-bold mb-0">Artikel <span class="text-gradient">Terbaru</span></h2>
+                    <p class="text-muted mt-2 mb-0">Wawasan terbaru seputar teknologi dan pengembangan web.</p>
+                </div>
+                <a href="articles.html" class="btn-modern btn-primary-modern d-none d-md-flex">
+                    Lihat Semua Artikel <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- Article 1 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <article class="card-modern h-100 overflow-hidden group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/coding/800/500" class="card-img-top transition-all group-hover-scale" alt="Modern Web Development" referrerPolicy="no-referrer">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary px-3 py-2">Teknologi</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-muted small mb-2">14 April 2026 • 5 Menit Baca</div>
+                            <h4 class="fw-bold mb-3 text-white">Masa Depan Pengembangan Web dengan AI</h4>
+                            <p class="text-muted small mb-4">Bagaimana kecerdasan buatan mengubah cara kita menulis kode dan membangun aplikasi di tahun 2026.</p>
+                            <a href="detailartikel.html?id=ai-future" class="text-primary text-decoration-none fw-bold d-inline-flex align-items-center gap-2 hover-gap">
+                                Baca Selengkapnya <i class="fas fa-arrow-right small"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <article class="card-modern h-100 overflow-hidden group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/design/800/500" class="card-img-top transition-all group-hover-scale" alt="UI Design" referrerPolicy="no-referrer">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary px-3 py-2">Desain</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-muted small mb-2">10 April 2026 • 8 Menit Baca</div>
+                            <h4 class="fw-bold mb-3 text-white">Prinsip Glassmorphism dalam UI Modern</h4>
+                            <p class="text-muted small mb-4">Panduan mendalam tentang cara mengimplementasikan efek kaca yang elegan menggunakan CSS murni.</p>
+                            <a href="detailartikel.html?id=glassmorphism" class="text-primary text-decoration-none fw-bold d-inline-flex align-items-center gap-2 hover-gap">
+                                Baca Selengkapnya <i class="fas fa-arrow-right small"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <article class="card-modern h-100 overflow-hidden group">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://picsum.photos/seed/performance/800/500" class="card-img-top transition-all group-hover-scale" alt="Performance" referrerPolicy="no-referrer">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary px-3 py-2">Tips</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-muted small mb-2">05 April 2026 • 6 Menit Baca</div>
+                            <h4 class="fw-bold mb-3 text-white">Optimasi Performa Website di Tahun 2026</h4>
+                            <p class="text-muted small mb-4">Teknik terbaru untuk memastikan website Anda memuat secepat kilat di berbagai perangkat.</p>
+                            <a href="detailartikel.html?id=performance" class="text-primary text-decoration-none fw-bold d-inline-flex align-items-center gap-2 hover-gap">
+                                Baca Selengkapnya <i class="fas fa-arrow-right small"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="text-center d-md-none reveal">
+                <a href="articles.html" class="btn-modern btn-outline-modern w-100 justify-content-center">
+                    Lihat Semua Artikel <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 overflow-hidden">
+        <div class="container mb-5">
+            <h2 class="section-title reveal">Apa Kata <span class="text-gradient">Klien</span></h2>
+        </div>
+        
+        <div class="testimonials-wrapper">
+            <div class="testimonials-track">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user1/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Andi Wijaya</h6>
+                                <p class="text-primary extra-small mb-0">CEO, TechStart</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Bagus sangat profesional dan hasil kerjanya melampaui ekspektasi kami. Sangat direkomendasikan!"</p>
+                    <div class="text-muted extra-small opacity-50">12 Jan 2024</div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user2/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Siti Aminah</h6>
+                                <p class="text-primary extra-small mb-0">Marketing Manager</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Landing page yang dibuat sangat cepat dan responsif. Penjualan kami meningkat drastis!"</p>
+                    <div class="text-muted extra-small opacity-50">05 Feb 2024</div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user3/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Budi Santoso</h6>
+                                <p class="text-primary extra-small mb-0">Freelance Designer</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Sangat mudah bekerja sama dengan Bagus. Komunikasinya lancar dan teknisnya sangat kuat."</p>
+                    <div class="text-muted extra-small opacity-50">20 Des 2023</div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user4/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Rina Kartika</h6>
+                                <p class="text-primary extra-small mb-0">Owner, FashionHub</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"E-commerce yang dibangun sangat user-friendly. Pelanggan kami sangat menyukainya."</p>
+                    <div class="text-muted extra-small opacity-50">15 Nov 2023</div>
+                </div>
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user5/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Eko Prasetyo</h6>
+                                <p class="text-primary extra-small mb-0">Project Manager</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Kualitas kode yang bersih dan dokumentasi yang lengkap. Sangat membantu tim kami."</p>
+                    <div class="text-muted extra-small opacity-50">10 Mar 2024</div>
+                </div>
+                
+                <!-- Duplicate for seamless loop -->
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user1/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Andi Wijaya</h6>
+                                <p class="text-primary extra-small mb-0">CEO, TechStart</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Bagus sangat profesional dan hasil kerjanya melampaui ekspektasi kami. Sangat direkomendasikan!"</p>
+                    <div class="text-muted extra-small opacity-50">12 Jan 2024</div>
+                </div>
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user2/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Siti Aminah</h6>
+                                <p class="text-primary extra-small mb-0">Marketing Manager</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Landing page yang dibuat sangat cepat dan responsif. Penjualan kami meningkat drastis!"</p>
+                    <div class="text-muted extra-small opacity-50">05 Feb 2024</div>
+                </div>
+                <div class="testimonial-card card-modern">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://picsum.photos/seed/user3/50/50" alt="User" class="rounded-circle" referrerPolicy="no-referrer">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-white">Budi Santoso</h6>
+                                <p class="text-primary extra-small mb-0">Freelance Designer</p>
+                            </div>
+                        </div>
+                        <div class="text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-3 italic">"Sangat mudah bekerja sama dengan Bagus. Komunikasinya lancar dan teknisnya sangat kuat."</p>
+                    <div class="text-muted extra-small opacity-50">20 Des 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-5 bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="display-6 fw-bold">Klien <span class="text-gradient">Terpercaya</span></h2>
+                <p class="text-muted">Bekerja sama dengan berbagai perusahaan inovatif di seluruh dunia.</p>
+            </div>
+            <div class="row g-4 align-items-center justify-content-center reveal">
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="client-logo-wrapper">
+                        <img src="https://cdn.simpleicons.org/google/white" alt="Google" class="client-logo" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="client-logo-wrapper">
+                        <img src="https://cdn.simpleicons.org/microsoft/white" alt="Microsoft" class="client-logo" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="client-logo-wrapper">
+                        <img src="https://cdn.simpleicons.org/amazon/white" alt="Amazon" class="client-logo" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="client-logo-wrapper">
+                        <img src="https://cdn.simpleicons.org/meta/white" alt="Meta" class="client-logo" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="client-logo-wrapper">
+                        <img src="https://cdn.simpleicons.org/netflix/white" alt="Netflix" class="client-logo" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="client-logo-wrapper">
+                        <img src="https://cdn.simpleicons.org/spotify/white" alt="Spotify" class="client-logo" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-dark-surface">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card-modern p-5 text-center reveal">
+                        <h2 class="display-5 fw-bold mb-4">Siap Memulai <span class="text-gradient">Proyek Baru?</span></h2>
+                        <p class="text-muted lead mb-5">
+                            Saya selalu terbuka untuk peluang kolaborasi, konsultasi teknologi, atau sekadar berdiskusi mengenai ide-ide inovatif Anda.
+                        </p>
+                        <div class="row g-4 mb-5 text-start justify-content-center">
+                            <div class="col-md-5">
+                                <div class="d-flex align-items-center gap-3 mb-4">
+                                    <div class="skill-icon-wrapper mb-0" style="width: 48px; height: 48px;">
+                                        <i class="fas fa-envelope fs-6"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted small mb-0">Email</p>
+                                        <p class="fw-bold mb-0">hello@bagus.dev</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="skill-icon-wrapper mb-0" style="width: 48px; height: 48px;">
+                                        <i class="fab fa-linkedin fs-6"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted small mb-0">LinkedIn</p>
+                                        <p class="fw-bold mb-0">linkedin.com/in/bagus</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="btn-modern btn-primary-modern px-5 py-3 fs-5 mx-auto">
+                            Hubungi Saya Sekarang <i class="fas fa-paper-plane ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row g-5 mb-5 text-start">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold fs-3 mb-4 d-block" href="#home">B<span class="text-gradient">.Dev</span></a>
+                    <p class="text-muted small pe-lg-5">
+                        Membangun solusi digital berkualitas tinggi dengan fokus pada performa, keamanan, dan pengalaman pengguna yang luar biasa.
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 ms-lg-auto">
+                    <h6 class="fw-bold text-white mb-4">Navigasi</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="#skills">Keahlian</a></li>
+                        <li><a href="#projects">Proyek</a></li>
+                        <li><a href="articles.html">Artikel</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold text-white mb-4">Layanan</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold text-white mb-4">Kontak</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span class="small">bagus@example.com</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span class="small">+62 812 3456 7890</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span class="small">Jakarta, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-10 mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0">&copy; 2024 Bagus Batara. All Rights Reserved. | <a href="login.html" class="text-muted text-decoration-none hover-white">Login</a></p>
+                <p class="text-muted small mb-0">Built with <i class="fas fa-heart text-danger mx-1"></i> & <i class="fas fa-code text-primary mx-1"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Native JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

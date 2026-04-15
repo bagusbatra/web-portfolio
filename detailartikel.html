@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Baca analisis mendalam dan panduan teknis mengenai pengembangan web, desain antarmuka, dan inovasi teknologi terbaru di blog Bagus Batara.">
+    <meta name="keywords" content="Detail Artikel Teknologi, Analisis Web Modern, Panduan Desain UI, Tips Optimasi Website, Bagus Batara Blog">
+    <meta name="author" content="Bagus Batara">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bagusbatara.dev/detailartikel.html">
+    <meta property="og:title" content="Detail Artikel | Bagus Batara">
+    <meta property="og:description" content="Baca analisis mendalam dan panduan teknis mengenai pengembangan web dan inovasi teknologi terbaru.">
+    <meta property="og:image" content="https://picsum.photos/seed/article-detail-preview/1200/630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%233b82f6%22>B</text></svg>">
+    
+    <title>Detail Artikel | Bagus Batara</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Native CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        .article-meta {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+        }
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .share-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .sidebar-article-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .sidebar-article-item:hover {
+            transform: translateX(5px);
+        }
+        .sidebar-article-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .sidebar-article-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolled">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">B<span class="text-gradient">.Dev</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto glass rounded-pill px-4 py-1 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="articles.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Detail Content -->
+    <div id="article-detail-container">
+        <!-- Content will be injected by JavaScript based on URL ID -->
+        <div class="container py-5 mt-5 text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row g-5 mb-5 text-start">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold fs-3 mb-4 d-block" href="index.html">B<span class="text-gradient">.Dev</span></a>
+                    <p class="text-muted small pe-lg-5">
+                        Membangun masa depan digital dengan kode yang bersih dan desain yang bermakna.
+                    </p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4">Navigasi</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="index.html#skills">Keahlian</a></li>
+                        <li><a href="index.html#projects">Proyek</a></li>
+                        <li><a href="index.html#articles">Artikel</a></li>
+                        <li><a href="index.html#testimonials">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="fw-bold mb-4">Layanan</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="fw-bold mb-4">Kontak</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="text-muted small mb-2"><i class="fas fa-envelope me-2"></i> bagusbatr@gmail.com</li>
+                        <li class="text-muted small mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jakarta Selatan, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-10 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted small mb-0">&copy; 2026 Bagus Batara. All rights reserved. | <a href="login.html" class="text-muted text-decoration-none hover-white">Login</a></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <p class="text-muted small mb-0">Dibuat dengan <i class="fas fa-heart text-danger mx-1"></i> untuk Web Modern.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Native JS -->
+    <script src="js/script.js"></script>
+    <script>
+        const articlesData = {
+            'ai-future': {
+                title: 'Masa Depan Pengembangan Web dengan AI',
+                category: 'Teknologi',
+                date: '14 April 2026',
+                readTime: '5 Menit Baca',
+                image: 'https://picsum.photos/seed/coding/1200/600',
+                content: `
+                    <p class="lead mb-4">Kecerdasan Buatan (AI) bukan lagi sekadar konsep futuristik, melainkan alat yang mendefinisikan ulang cara kita membangun web di tahun 2026.</p>
+                    <p>Dalam beberapa tahun terakhir, kita telah melihat pergeseran besar dari penulisan kode manual murni ke pengembangan yang dibantu oleh AI. Alat seperti GitHub Copilot dan model bahasa besar (LLM) telah berevolusi dari sekadar pemberi saran menjadi rekan kolaborasi yang aktif.</p>
+                    <h3>Otomatisasi yang Cerdas</h3>
+                    <p>AI sekarang mampu menghasilkan struktur boilerplate, melakukan debugging secara real-time, dan bahkan memberikan saran optimasi performa yang sangat spesifik. Ini memungkinkan pengembang untuk lebih fokus pada logika bisnis dan pengalaman pengguna daripada detail sintaksis yang repetitif.</p>
+                    <img src="https://picsum.photos/seed/ai-tech/800/400" alt="AI in Coding" referrerPolicy="no-referrer">
+                    <h3>Personalisasi Tingkat Lanjut</h3>
+                    <p>Salah satu dampak terbesar AI pada sisi pengguna adalah personalisasi. Website sekarang dapat beradaptasi secara dinamis berdasarkan perilaku pengguna, menyajikan konten dan tata letak yang paling relevan bagi setiap individu secara unik.</p>
+                    <p>Kesimpulannya, AI tidak akan menggantikan pengembang web, tetapi pengembang yang menggunakan AI akan menggantikan mereka yang tidak menggunakannya. Masa depan adalah tentang kolaborasi antara kreativitas manusia dan efisiensi mesin.</p>
+                `
+            },
+            'glassmorphism': {
+                title: 'Prinsip Glassmorphism dalam UI Modern',
+                category: 'Desain',
+                date: '10 April 2026',
+                readTime: '8 Menit Baca',
+                image: 'https://picsum.photos/seed/design/1200/600',
+                content: `
+                    <p class="lead mb-4">Glassmorphism telah menjadi salah satu tren desain paling dominan, memberikan kesan kedalaman dan modernitas pada antarmuka digital.</p>
+                    <p>Gaya ini ditandai dengan efek transparansi seperti kaca buram, warna-warna cerah di latar belakang, dan garis tepi yang halus. Mari kita bedah bagaimana cara mengimplementasikannya dengan benar.</p>
+                    <h3>Kunci Utama Glassmorphism</h3>
+                    <ul>
+                        <li><strong>Transparansi:</strong> Menggunakan filter backdrop-blur untuk menciptakan efek kaca.</li>
+                        <li><strong>Multi-layered Approach:</strong> Objek tampak melayang di atas latar belakang yang berwarna.</li>
+                        <li><strong>Subtle Borders:</strong> Garis tepi tipis yang memberikan definisi pada objek transparan.</li>
+                    </ul>
+                    <img src="https://picsum.photos/seed/glass-ui/800/400" alt="Glassmorphism UI" referrerPolicy="no-referrer">
+                    <h3>Implementasi CSS</h3>
+                    <p>Untuk mencapai efek ini, kita menggunakan properti <code>backdrop-filter: blur(10px)</code> dikombinasikan dengan latar belakang semi-transparan. Ini menciptakan ilusi optik yang sangat memuaskan bagi mata pengguna.</p>
+                `
+            },
+            'performance': {
+                title: 'Optimasi Performa Website di Tahun 2026',
+                category: 'Tips',
+                date: '05 April 2026',
+                readTime: '6 Menit Baca',
+                image: 'https://picsum.photos/seed/performance/1200/600',
+                content: `
+                    <p class="lead mb-4">Kecepatan bukan lagi sekadar fitur, melainkan kebutuhan dasar. Website yang lambat adalah website yang ditinggalkan.</p>
+                    <p>Di tahun 2026, standar performa web telah meningkat drastis seiring dengan perkembangan perangkat keras dan ekspektasi pengguna yang semakin tinggi.</p>
+                    <h3>Teknik Optimasi Modern</h3>
+                    <p>Penggunaan format gambar generasi terbaru, pemuatan aset secara asinkron, dan pemanfaatan edge computing adalah beberapa cara utama untuk mencapai performa puncak.</p>
+                    <img src="https://picsum.photos/seed/speed-tech/800/400" alt="Web Performance" referrerPolicy="no-referrer">
+                    <h3>Core Web Vitals 2026</h3>
+                    <p>Google telah memperbarui metrik mereka untuk lebih fokus pada interaktivitas instan. Kita harus memastikan bahwa setiap interaksi pengguna mendapatkan respon dalam hitungan milidetik.</p>
+                `
+            }
+        };
+
+        function renderArticleDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const articleId = params.get('id');
+            const container = document.getElementById('article-detail-container');
+
+            if (!articleId || !articlesData[articleId]) {
+                container.innerHTML = `
+                    <div class="container py-5 mt-5 text-center">
+                        <h2 class="text-white mb-4">Artikel Tidak Ditemukan</h2>
+                        <p class="text-muted mb-5">Maaf, artikel yang Anda cari tidak tersedia atau telah dihapus.</p>
+                        <a href="index.html#articles" class="btn-modern btn-primary-modern">Kembali ke Artikel</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const article = articlesData[articleId];
+            
+            // Filter other articles for sidebar
+            const otherArticles = Object.keys(articlesData)
+                .filter(id => id !== articleId)
+                .map(id => ({ id, ...articlesData[id] }));
+
+            const topArticles = [...otherArticles].sort(() => 0.5 - Math.random()).slice(0, 3);
+            const newArticles = [...otherArticles].slice(0, 3);
+
+            container.innerHTML = `
+                <header class="py-5 mt-5">
+                    <div class="container pt-5">
+                        <nav aria-label="breadcrumb" class="mb-4 reveal active">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.html#articles" class="text-muted text-decoration-none">Artikel</a></li>
+                                <li class="breadcrumb-item active text-primary" aria-current="page">Detail</li>
+                            </ol>
+                        </nav>
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="reveal active">
+                                    <span class="badge bg-primary px-3 py-2 mb-3">${article.category}</span>
+                                    <h1 class="display-4 fw-bold mb-4 text-white">${article.title}</h1>
+                                    <div class="article-meta d-flex align-items-center gap-4 text-muted mb-5">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="far fa-calendar"></i> ${article.date}
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="far fa-clock"></i> ${article.readTime}
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="far fa-user"></i> Bagus Batara
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="pb-5">
+                    <div class="container">
+                        <div class="row g-5">
+                            <div class="col-lg-8">
+                                <div class="reveal active mb-5">
+                                    <img src="${article.image}" class="img-fluid rounded-4 shadow-lg w-100" alt="${article.title}" referrerPolicy="no-referrer">
+                                </div>
+                                <div class="article-content text-light opacity-90 reveal active">
+                                    ${article.content}
+                                </div>
+                                <hr class="border-secondary opacity-20 my-5">
+                                <div class="d-flex justify-content-between align-items-center reveal active">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="text-muted small">Bagikan:</span>
+                                        <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                    <a href="index.html#articles" class="btn-modern btn-outline-modern">
+                                        <i class="fas fa-arrow-left me-2"></i> Kembali
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Sidebar -->
+                            <div class="col-lg-4">
+                                <div class="sticky-top" style="top: 100px;">
+                                    <!-- Top Articles -->
+                                    <div class="sidebar-card reveal active">
+                                        <h5 class="fw-bold text-white mb-4">Top Artikel</h5>
+                                        ${topArticles.map(item => `
+                                            <a href="detailartikel.html?id=${item.id}" class="sidebar-article-item">
+                                                <img src="${item.image}" class="sidebar-article-img" alt="${item.title}" referrerPolicy="no-referrer">
+                                                <div>
+                                                    <div class="text-primary extra-small mb-1">${item.category}</div>
+                                                    <div class="sidebar-article-title">${item.title}</div>
+                                                </div>
+                                            </a>
+                                        `).join('')}
+                                    </div>
+
+                                    <!-- New Articles -->
+                                    <div class="sidebar-card reveal active">
+                                        <h5 class="fw-bold text-white mb-4">Artikel Terbaru</h5>
+                                        ${newArticles.map(item => `
+                                            <a href="detailartikel.html?id=${item.id}" class="sidebar-article-item">
+                                                <img src="${item.image}" class="sidebar-article-img" alt="${item.title}" referrerPolicy="no-referrer">
+                                                <div>
+                                                    <div class="text-primary extra-small mb-1">${item.date}</div>
+                                                    <div class="sidebar-article-title">${item.title}</div>
+                                                </div>
+                                            </a>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', renderArticleDetail);
+    </script>
+</body>
+</html>

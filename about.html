@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pelajari lebih lanjut tentang Bagus Batara, seorang pengembang web dengan latar belakang Teknik Informatika. Temukan pengalaman kerja, keahlian teknis, dan visi saya dalam dunia teknologi.">
+    <meta name="keywords" content="Profil Bagus Batara, Pengembang Web Indonesia, Keahlian Frontend Backend, Pengalaman Kerja Programmer, Teknik Informatika, Visi Teknologi">
+    <meta name="author" content="Bagus Batara">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bagusbatara.dev/about.html">
+    <meta property="og:title" content="Tentang Saya | Bagus Batara">
+    <meta property="og:description" content="Pelajari lebih lanjut tentang Bagus Batara, seorang pengembang web dengan latar belakang Teknik Informatika.">
+    <meta property="og:image" content="https://picsum.photos/seed/about-preview/1200/630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%233b82f6%22>B</text></svg>">
+    
+    <title>Tentang Saya | Bagus Batara</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Native CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--glass-border);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolled">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">B<span class="text-gradient">.Dev</span></a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto glass rounded-pill px-4 py-1 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#articles">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-section py-5 mt-5 skeleton-wrapper">
+        <div class="parallax-bg"></div>
+        <div class="container pt-5 hero-content">
+            <div class="skeleton skeleton-title mb-4"></div>
+            <div class="skeleton skeleton-text" style="width: 50%;"></div>
+            
+            <div class="reveal active content-hidden">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-primary" aria-current="page">Tentang</li>
+                    </ol>
+                </nav>
+                <h1 class="display-3 fw-bold mb-4">Profil <span class="text-gradient">Lengkap</span></h1>
+                <p class="lead text-muted max-w-2xl">
+                    Eksplorasi mendalam mengenai perjalanan karir, pendidikan, dan visi saya sebagai pengembang web.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detailed About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Sidebar Info -->
+                <div class="col-lg-4 reveal">
+                    <div class="card-modern sticky-top" style="top: 100px;">
+                        <!-- Automatic Image Carousel -->
+                        <div id="aboutCarousel" class="carousel slide mb-4 shadow rounded-4 overflow-hidden" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="3000">
+                                    <img src="https://picsum.photos/seed/profile1/400/400" class="d-block w-100" alt="Bagus Batara 1" referrerPolicy="no-referrer">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="3000">
+                                    <img src="https://picsum.photos/seed/profile2/400/400" class="d-block w-100" alt="Bagus Batara 2" referrerPolicy="no-referrer">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="3000">
+                                    <img src="https://picsum.photos/seed/profile3/400/400" class="d-block w-100" alt="Bagus Batara 3" referrerPolicy="no-referrer">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="fw-bold mb-1 text-white">Bagus Batara</h3>
+                        <p class="text-primary mb-4">Junior Web Programmer</p>
+                        
+                        <hr class="border-secondary opacity-20 mb-4">
+                        
+                        <div class="space-y-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-muted small">Umur</span>
+                                <span class="small">22 Tahun</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-muted small">Bahasa</span>
+                                <span class="small">Indonesia, Inggris</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-muted small">Status</span>
+                                <span class="text-success small">Open to Work</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 d-grid">
+                            <a href="#" class="btn-modern btn-primary-modern justify-content-center">
+                                <i class="fas fa-download me-2"></i> Unduh CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <!-- Bio -->
+                    <div class="reveal mb-5">
+                        <h2 class="fw-bold mb-4">Biografi Singkat</h2>
+                        <p class="text-muted">
+                            Saya adalah seorang pengembang web yang berfokus pada pembuatan aplikasi web yang efisien dan skalabel. Ketertarikan saya pada dunia pemrograman dimulai sejak bangku sekolah menengah, di mana saya pertama kali mengenal HTML dan CSS. Sejak saat itu, saya terus mengeksplorasi berbagai teknologi web modern.
+                        </p>
+                        <p class="text-muted">
+                            Lulus dari S1 Teknik Informatika memberikan saya landasan teoritis yang kuat dalam algoritma, struktur data, dan rekayasa perangkat keras. Saya menggabungkan pengetahuan ini dengan keterampilan praktis dalam pengembangan frontend dan backend untuk membangun produk digital yang bermakna.
+                        </p>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="reveal mb-5">
+                        <h2 class="fw-bold mb-4">Pengalaman Kerja</h2>
+                        <div class="timeline">
+                            <div class="timeline-item stagger-item">
+                                <h5 class="fw-bold mb-1">Junior Web Developer</h5>
+                                <p class="text-primary small mb-2">PT. Teknologi Kreatif Digital | Jan 2023 - Sekarang</p>
+                                <ul class="text-muted small">
+                                    <li>Mengembangkan dan memelihara fitur frontend menggunakan React.js dan Bootstrap.</li>
+                                    <li>Berkolaborasi dengan tim desain untuk mengimplementasikan UI/UX yang responsif.</li>
+                                    <li>Mengoptimalkan performa aplikasi web, meningkatkan kecepatan pemuatan sebesar 30%.</li>
+                                    <li>Melakukan integrasi API pihak ketiga untuk layanan pembayaran dan notifikasi.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item stagger-item">
+                                <h5 class="fw-bold mb-1">Web Development Intern</h5>
+                                <p class="text-primary small mb-2">Startup Inovasi Bangsa | Jun 2022 - Des 2022</p>
+                                <ul class="text-muted small">
+                                    <li>Membantu dalam pengembangan modul backend menggunakan PHP dan Laravel.</li>
+                                    <li>Memperbaiki bug pada sistem manajemen inventaris internal.</li>
+                                    <li>Mempelajari dan menerapkan praktik Git Flow dalam tim pengembangan.</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-item stagger-item">
+                                <h5 class="fw-bold mb-1">Freelance Web Designer</h5>
+                                <p class="text-primary small mb-2">Mandiri | 2021 - 2022</p>
+                                <ul class="text-muted small">
+                                    <li>Mendesain dan membangun landing page untuk berbagai klien UMKM.</li>
+                                    <li>Mengelola hosting dan domain untuk situs web klien.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="reveal mb-5">
+                        <h2 class="fw-bold mb-4">Riwayat Pendidikan</h2>
+                        <div class="timeline">
+                            <div class="timeline-item stagger-item">
+                                <h5 class="fw-bold mb-1">Sarjana Teknik Informatika</h5>
+                                <p class="text-primary small mb-2">Universitas Indonesia | 2019 - 2023</p>
+                                <p class="text-muted small">IPK: 3.85 / 4.00. Fokus pada Rekayasa Perangkat Lunak dan Kecerdasan Buatan.</p>
+                            </div>
+                            <div class="timeline-item stagger-item">
+                                <h5 class="fw-bold mb-1">Sekolah Menengah Atas</h5>
+                                <p class="text-primary small mb-2">SMA Negeri 1 Jakarta | 2016 - 2019</p>
+                                <p class="text-muted small">Jurusan MIPA. Aktif dalam klub robotik dan olimpiade komputer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications & Others -->
+                    <div class="reveal mb-5">
+                        <h2 class="fw-bold mb-4">Sertifikasi & Pencapaian</h2>
+                        <div class="row g-3">
+                            <div class="col-md-6 stagger-item">
+                                <div class="card-modern p-3 cert-card">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <i class="fas fa-certificate text-primary fs-4"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-0">Google IT Automation</h6>
+                                            <p class="text-muted extra-small mb-0">Coursera - 2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 stagger-item">
+                                <div class="card-modern p-3 cert-card">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <i class="fas fa-certificate text-primary fs-4"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-0">Fullstack Web Dev</h6>
+                                            <p class="text-muted extra-small mb-0">Dicoding - 2022</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 stagger-item">
+                                <div class="card-modern p-3 cert-card">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <i class="fas fa-trophy text-warning fs-4"></i>
+                                        <div>
+                                            <h6 class="fw-bold mb-0">Juara 1 Hackathon</h6>
+                                            <p class="text-muted extra-small mb-0">TechFest - 2022</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interests -->
+                    <div class="reveal">
+                        <h2 class="fw-bold mb-4">Minat & Hobi</h2>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge rounded-pill glass px-3 py-2">Open Source</span>
+                            <span class="badge rounded-pill glass px-3 py-2">Cloud Computing</span>
+                            <span class="badge rounded-pill glass px-3 py-2">UI/UX Design</span>
+                            <span class="badge rounded-pill glass px-3 py-2">Photography</span>
+                            <span class="badge rounded-pill glass px-3 py-2">Gaming</span>
+                            <span class="badge rounded-pill glass px-3 py-2">Traveling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row g-5 mb-5 text-start">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold fs-3 mb-4 d-block" href="index.html">B<span class="text-gradient">.Dev</span></a>
+                    <p class="text-muted small pe-lg-5">
+                        Membangun solusi digital berkualitas tinggi dengan fokus pada performa, keamanan, dan pengalaman pengguna yang luar biasa.
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 ms-lg-auto">
+                    <h6 class="fw-bold text-white mb-4">Navigasi</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="index.html#skills">Keahlian</a></li>
+                        <li><a href="projects.html">Proyek</a></li>
+                        <li><a href="articles.html">Artikel</a></li>
+                        <li><a href="index.html#testimonials">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="fw-bold text-white mb-4">Layanan</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold text-white mb-4">Kontak</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span class="small">bagus@example.com</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span class="small">+62 812 3456 7890</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span class="small">Jakarta, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-10 mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-muted small mb-0">&copy; 2024 Bagus Batara. All Rights Reserved. | <a href="login.html" class="text-muted text-decoration-none hover-white">Login</a></p>
+                <p class="text-muted small mb-0">Built with <i class="fas fa-heart text-danger mx-1"></i> & <i class="fas fa-code text-primary mx-1"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Native JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
