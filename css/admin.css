@@ -395,25 +395,6 @@ body.admin-body {
     color: white;
 }
 
-/* Modals */
-.admin-modal {
-    background-color: #121214;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-color);
-    border-radius: 28px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.admin-modal .modal-header {
-    border-bottom: 1px solid var(--border-color);
-    padding: 2rem;
-}
-
-.admin-modal .modal-footer {
-    border-top: 1px solid var(--border-color);
-    padding: 1.5rem 2rem;
-}
 
 .admin-input {
     background-color: rgba(255, 255, 255, 0.03);
@@ -536,13 +517,6 @@ body.admin-body {
     .btn-primary-modern {
         width: 100%;
         text-align: center;
-    }
-    .admin-modal .modal-header,
-    .admin-modal .modal-footer {
-        padding: 1.2rem 1.5rem;
-    }
-    .admin-modal .modal-body {
-        padding: 1.5rem;
     }
 }
 

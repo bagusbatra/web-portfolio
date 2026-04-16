@@ -1,0 +1,95 @@
+/* BACKDROP (gelap blur) */
+.modal-backdrop.show {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+/* CONTAINER MODAL */
+.modal-content {
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #e5e7eb;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* HEADER */
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px 20px;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* BODY */
+.modal-body {
+  padding: 20px;
+}
+
+/* FOOTER */
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px 20px;
+}
+
+/* INPUT */
+.modal .form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  color: #e5e7eb;
+  border-radius: 10px;
+}
+
+.modal .form-control:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* TEXTAREA */
+.modal textarea.form-control {
+  resize: none;
+}
+
+/* BUTTON PRIMARY */
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* BUTTON SECONDARY */
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  color: #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* BUTTON DANGER */
+.btn-danger {
+  border-radius: 10px;
+}
+
+/* CLOSE BUTTON */
+.btn-close {
+  filter: invert(1);
+  opacity: 0.6;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}

@@ -123,14 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </tr>
         `).join('');
 
-        // Add event listeners for edit/delete
-        document.querySelectorAll('.edit-project').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.getAttribute('data-id');
-                const proj = projects.find(p => p.id == id);
-                if (proj) openProjectModal(proj);
-            });
-        });
     }
 
     function loadArticles() {
@@ -152,13 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </tr>
         `).join('');
 
-        document.querySelectorAll('.edit-article').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.getAttribute('data-id');
-                const art = articles.find(a => a.id == id);
-                if (art) openArticleModal(art);
-            });
-        });
     }
 
     function loadTestimonials() {
@@ -197,91 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </tr>
         `).join('');
 
-        document.querySelectorAll('.edit-client').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.getAttribute('data-id');
-                const client = clients.find(c => c.id == id);
-                if (client) openClientModal(client);
-            });
-        });
     }
-
-    // Modal Helpers
-    function openProjectModal(proj = null) {
-        const modal = new bootstrap.Modal(document.getElementById('projectModal'));
-        const title = document.getElementById('projectModalTitle');
-        const form = document.getElementById('projectForm');
-        
-        form.reset();
-        if (proj) {
-            title.textContent = 'Edit Proyek';
-            document.getElementById('proj-id').value = proj.id;
-            document.getElementById('proj-title').value = proj.title;
-            document.getElementById('proj-year').value = proj.year;
-            document.getElementById('proj-category').value = proj.category;
-            // Add other fields as needed
-        } else {
-            title.textContent = 'Tambah Proyek';
-            document.getElementById('proj-id').value = '';
-        }
-        modal.show();
-    }
-
-    function openArticleModal(art = null) {
-        const modal = new bootstrap.Modal(document.getElementById('articleModal'));
-        const title = document.getElementById('articleModalTitle');
-        const form = document.getElementById('articleForm');
-        
-        form.reset();
-        if (art) {
-            title.textContent = 'Edit Artikel';
-            document.getElementById('art-id').value = art.id;
-            document.getElementById('art-title').value = art.title;
-            document.getElementById('art-category').value = art.category;
-            document.getElementById('art-date').value = art.date;
-        } else {
-            title.textContent = 'Tulis Artikel Baru';
-            document.getElementById('art-id').value = '';
-        }
-        modal.show();
-    }
-
-    function openClientModal(client = null) {
-        const modal = new bootstrap.Modal(document.getElementById('clientModal'));
-        const title = document.getElementById('clientModalTitle');
-        const form = document.getElementById('clientForm');
-        
-        form.reset();
-        if (client) {
-            title.textContent = 'Edit Klien';
-            document.getElementById('client-id').value = client.id;
-            document.getElementById('client-name').value = client.name;
-            document.getElementById('client-logo').value = client.logo;
-        } else {
-            title.textContent = 'Tambah Klien';
-            document.getElementById('client-id').value = '';
-        }
-        modal.show();
-    }
-
-    // Form Submit Handlers
-    document.getElementById('projectForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Data proyek berhasil disimpan! (Simulasi)');
-        bootstrap.Modal.getInstance(document.getElementById('projectModal')).hide();
-    });
-
-    document.getElementById('articleForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Artikel berhasil diterbitkan! (Simulasi)');
-        bootstrap.Modal.getInstance(document.getElementById('articleModal')).hide();
-    });
-
-    document.getElementById('clientForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Data klien berhasil disimpan! (Simulasi)');
-        bootstrap.Modal.getInstance(document.getElementById('clientModal')).hide();
-    });
 
 
     // Initial Load
