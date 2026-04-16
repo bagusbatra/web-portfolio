@@ -1,3 +1,21 @@
+<!-- FOR STATUS -->
+ <?php
+include 'config/connect.php';
+
+// ambil semua status
+$statusList = mysqli_query($conn, "SELECT * FROM status");
+
+// ambil status aktif (ambil terakhir)
+$currentStatus = mysqli_query($conn, "
+    SELECT s.* 
+    FROM user_status us
+    JOIN status s ON us.status_id = s.id
+    ORDER BY us.id DESC LIMIT 1
+");
+
+$current = mysqli_fetch_assoc($currentStatus);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -167,7 +185,12 @@
                                             <h3>Status</h3>
                                         </div>
                                         <div class="row g-3">
-                                            <p><i class="fas fa-circle me-2"></i>Status Sekarang</p>
+                                            <p id="statusDisplay">
+                                            <i class="fas fa-circle text-success me-2"></i>
+                                            <span id="statusText">
+                                                <?= $current['status'] ?? 'Belum ada status' ?>
+                                            </span>
+                                            </p>
                                             <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#statusModal">
                                                 <i class="fas fa-pencil me-2"></i> Edit
                                             </button>
@@ -537,28 +560,40 @@
       </div>
     </div>
 
-    <!-- Status Modal -->
-    <div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit Status</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="statusForm">
-              <div class="mb-3">
-                <label class="form-label">Status Saat Ini</label>
-                <input type="text" class="form-control" id="currentStatus" placeholder="Contoh: Aktif / Sedang Bekerja">
-              </div>
+        <!-- Status Modal -->
+    <!-- MODAL: STATUS -->
+    <div class="modal fade" id="statusModal" tabindex="-1">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+
+            <!-- HEADER -->
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- BODY -->
+            <form method="POST" action="proses/update_status.php">
+                <div class="modal-body">
+                    <select class="form-select" id="statusSelect" name="status_id">
+                    <option value="">-- Pilih Status --</option>
+                    <?php while($row = mysqli_fetch_assoc($statusList)): ?>
+                    <option value="<?= $row['id']; ?>">
+                        <?= $row['status']; ?>
+                    </option>
+                    <?php endwhile; ?>
+                </select>
+                </div>
+
+                <!-- FOOTER -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" id="saveStatus">Simpan</button>
+                </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-primary">Simpan</button>
-          </div>
+
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Job Modal -->
@@ -714,7 +749,5 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Admin JS -->
-    <script src="js/admin.js"></script>
-    <!-- <script src="js/modals.js"></script> -->
 </body>
 </html>
