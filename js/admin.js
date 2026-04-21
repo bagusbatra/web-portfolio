@@ -74,29 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Mock Data
+    
+    const articles = [
+        { id: 1, title: "Masa Depan Web Development", category: "Teknologi", date: "2024-03-15", views: 120 },
+        { id: 2, title: "Tips UI/UX untuk Pemula", category: "Design", date: "2024-03-10", views: 85 },
+        { id: 3, title: "Belajar React Hooks", category: "Tutorial", date: "2024-02-28", views: 210 }
+    ];
+    
+    const testimonials = [
+        { id: 1, name: "John Doe", position: "CEO TechCorp", message: "Bagus adalah developer yang sangat kompeten." },
+        { id: 2, name: "Sarah Smith", position: "Product Manager", message: "Hasil kerjanya selalu melebihi ekspektasi." }
+    ];
+    
+    const clients = [
+        { id: 1, name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
+        { id: 2, name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
+        { id: 3, name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" }
+    ];
+    
     const projects = [
         { id: 1, title: "E-commerce App", category: "Web Development", year: 2024, status: "Published" },
         { id: 2, title: "Task Management App", category: "Frontend Development", year: 2023, status: "Published" },
         { id: 3, title: "Business Landing Page", category: "UI/UX Design", year: 2022, status: "Published" },
         { id: 4, title: "Weather Dashboard", category: "API Integration", year: 2022, status: "Archived" },
         { id: 5, title: "Personal Blog CMS", category: "Fullstack Development", year: 2022, status: "Published" }
-    ];
-
-    const articles = [
-        { id: 1, title: "Masa Depan Web Development", category: "Teknologi", date: "2024-03-15", views: 120 },
-        { id: 2, title: "Tips UI/UX untuk Pemula", category: "Design", date: "2024-03-10", views: 85 },
-        { id: 3, title: "Belajar React Hooks", category: "Tutorial", date: "2024-02-28", views: 210 }
-    ];
-
-    const testimonials = [
-        { id: 1, name: "John Doe", position: "CEO TechCorp", message: "Bagus adalah developer yang sangat kompeten." },
-        { id: 2, name: "Sarah Smith", position: "Product Manager", message: "Hasil kerjanya selalu melebihi ekspektasi." }
-    ];
-
-    const clients = [
-        { id: 1, name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-        { id: 2, name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
-        { id: 3, name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" }
     ];
 
     function loadProjects() {

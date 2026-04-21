@@ -47,16 +47,6 @@ $current = mysqli_fetch_assoc($currentStatus);
     <link rel="stylesheet" href="css/modals.css">
 </head>
 
-<div id="modal-container"></div>
-
-<script>
-  fetch("modals.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("modal-container").innerHTML = data;
-    });
-</script>
-
 <body class="admin-body">
 
     <!-- Sidebar -->
@@ -247,11 +237,13 @@ $current = mysqli_fetch_assoc($currentStatus);
                                             <tbody>
                                                 <tr>
                                                     <td>Pekerjaan 1</td>
+                                                    <td>PT Maju Jaya</td>
                                                     <td>2022 -2025</td>
                                                     <td class="text-end"><a href="#"><i class="fas fa-eye me-2"></i> Detail</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Pekerjaan 2</td>
+                                                    <td>PT Terbaik</td>
                                                     <td>2022 -2025</td>
                                                     <td class="text-end"><a href="#"><i class="fas fa-eye me-2"></i> Detail</a></td>
                                                 </tr>
@@ -276,12 +268,14 @@ $current = mysqli_fetch_assoc($currentStatus);
                                             <table class="mini-table">
                                             <tbody>
                                                 <tr>
-                                                    <td>Kuliah</td>
+                                                    <td>Politeknik Negeri Madiun</td>
+                                                    <td>3.48/4.00</td>
                                                     <td>2022 -2025</td>
                                                     <td class="text-end"><a href="#"><i class="fas fa-eye me-2"></i> Detail</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>SMA</td>
+                                                    <td>98/100</td>
                                                     <td>2022 -2025</td>
                                                     <td class="text-end"><a href="#"><i class="fas fa-eye me-2"></i> Detail</a></td>
                                                 </tr>
@@ -304,39 +298,97 @@ $current = mysqli_fetch_assoc($currentStatus);
                                                     <h3 class="pb-3">Sertifikasi</h3>
                                                 </div>
                                                 <div class="col text-end">
-                                                    <button class="btn btn-primary-modern">
-                                                        <i class="fas fa-plus me-2"></i> <a href="">Tambah</a>
+                                                    <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#createCertModal">
+                                                        <i class="fas fa-plus me-2"></i> Tambah
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row g-3">
-                                            <table class="certificate text-center">
-                                                <thead>
-                                                    <tr>
-                                                        <td>Sertifikasi</td>
-                                                        <td>Aksi</td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Web Programming</td>
-                                                        <td>
-                                                            <a href=""> <i class="fas fa-eye me-2"></i></a>
-                                                            <a href=""> <i class="fas fa-pencil me-2"></i></a>
-                                                            <a href=""> <i class="fas fa-trash me-2"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Web Programming</td>
-                                                        <td>
-                                                            <a href=""> <i class="fas fa-eye me-2"></i></a>
-                                                            <a href=""> <i class="fas fa-pencil me-2"></i></a>
-                                                            <a href=""> <i class="fas fa-trash me-2"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <tbody>
+                                            <?php
+                                            $certi = mysqli_query($conn, "SELECT * FROM certified ORDER BY id DESC");
+
+                                            $no = 0;
+                                            while ($row = mysqli_fetch_assoc($certi)) {
+                                                $no++;
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <a data-bs-toggle="collapse" href="#cert<?= $no ?>" class="text-primary">
+                                                        <?= $row['tittle']; ?>
+                                                    </a>
+                                                </td>
+
+                                                <td class="text-end">
+                                                    
+                                                </td>
+                                            </tr>
+
+                                            <!-- ACCORDION DETAIL -->
+                                            <tr class="collapse-row">
+                                                <td colspan="2" class="p-0">
+                                                    <div class="collapse" id="cert<?= $no ?>">
+                                                        <div class="p-3 bg-dark">
+
+                                                            <div class="row align-items-center g-3">
+
+                                                                <!-- IMAGE -->
+                                                                <div class="col-md-4 text-center">
+                                                                    <img src="assets/uploads/certified/<?= $row['img']; ?>" 
+                                                                        class="img-fluid cert-img">
+                                                                </div>
+
+                                                                <!-- DETAIL -->
+                                                                <div class="col-md-8">
+                                                                    <h5><?= $row['tittle']; ?></h5>
+                                                                    <p><strong>Issuer:</strong> <?= $row['issuer']; ?></p>
+                                                                    <p><strong>Tahun:</strong> <?= $row['year']; ?></p>
+                                                                    <p><strong>Kategori:</strong> <?= $row['category']; ?></p>
+                                                                    <p><?= $row['desc']; ?></p>
+                                                                </div>
+
+                                                                <div class="action-btn text-end">
+
+                                                                        <!-- EDIT -->
+                                                                        <button 
+                                                                        class="btn btn-warning btn-sm btn-edit"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#modalEditCert"
+
+                                                                        data-id="<?= $row['id']; ?>"
+                                                                        data-tittle="<?= $row['tittle']; ?>"
+                                                                        data-issuer="<?= $row['issuer']; ?>"
+                                                                        data-year="<?= $row['year']; ?>"
+                                                                        data-desc="<?= $row['desc']; ?>"
+                                                                        data-category="<?= $row['category']; ?>"
+                                                                        >
+                                                                        Edit
+                                                                        </button>
+
+                                                                        <!-- DELETE -->
+                                                                        <button 
+                                                                        class="btn btn-danger btn-sm btn-delete"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#modalDeleteCert"
+
+                                                                        data-id="<?= $row['id']; ?>"
+                                                                        data-tittle="<?= $row['tittle']; ?>"
+                                                                        >
+                                                                        Hapus
+                                                                        </button>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <?php } ?>
+                                            </tbody>
                                         </div>
                                     </div>
                                 </div>
@@ -347,23 +399,31 @@ $current = mysqli_fetch_assoc($currentStatus);
                                      <div class="container">
                                         <div class="row pb-4 text-center">
                                             <h3 class="pb-3">Hobi</h3>
-                                            <button class="btn btn-primary-modern">
-                                                <i class="fas fa-plus me-2"></i> <a href="">Tambah</a>
+                                            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#hobiModal">
+                                                <i class="fas fa-plus me-2"></i> Tambah
                                             </button>
                                         </div>
                                         <div class="row g-3">
                                             <table class="mini-table">
                                             <tbody>
+                                                <?php
+                                                $hobi = mysqli_query($conn, "SELECT * FROM hobi ORDER BY id ASC");
+
+                                                $no = 1;
+                                                while ($row = mysqli_fetch_assoc($hobi)) {
+                                                ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Traveling</td>
-                                                    <td class="text-end"><a href=""><i class="fas fa-eye me-2"></i> Detail</a></td>
+                                                    <td><?= $no++; ?></td>
+                                                    <td><?= $row['name']; ?></td>
+                                                    <td class="text-end">
+                                                        <a href="proses/hapus_hobi.php?id=<?= $row['id']; ?>" 
+                                                            onclick="return confirm('Yakin ingin menghapus hobi ini?')"
+                                                            class="text-danger">
+                                                            <i class="fas fa-trash me-2"></i> Hapus
+                                                        </a>
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Fotografi</td>
-                                                    <td class="text-end"><a href=""><i class="fas fa-eye me-2"></i> Detail</a></td>
-                                                </tr>
+                                                <?php } ?>
                                             </tbody>
                                             </table>
                                         </div>
@@ -375,36 +435,77 @@ $current = mysqli_fetch_assoc($currentStatus);
                                      <div class="container">
                                         <div class="row pb-4 text-center">
                                             <h3 class="pb-3">Skill</h3>
-                                            <button class="btn btn-primary-modern">
-                                                <i class="fas fa-plus me-2"></i> <a href="">Tambah</a>
+                                            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#skillModal">
+                                                <i class="fas fa-plus me-2"></i> Tambah
                                             </button>
                                         </div>
                                         <div class="row g-3">
                                             <table class="mini-table">
-                                            <tbody>
+                                                <tbody>
+                                                <?php
+                                                $skill = mysqli_query($conn, "SELECT * FROM skill ORDER BY id DESC");
+
+                                                $no = 0;
+                                                while ($row = mysqli_fetch_assoc($skill)) {
+                                                    $no++;
+                                                ?>
                                                 <tr>
-                                                    <td>Front End</td>
+                                                    <td><?= $row['name']; ?></td>
+
+                                                    <!-- TAG (LIMIT 3) -->
                                                     <td>
                                                         <div class="skill-wrapper">
-                                                            <span class="skill-tag">HTML</span>
-                                                            <span class="skill-tag">CSS</span>
-                                                            <span class="skill-tag">JS</span>
+                                                            <?php
+                                                            $skills = explode(',', $row['skill']);
+                                                            $limited = array_slice($skills, 0, 3);
+
+                                                            foreach ($limited as $s) {
+                                                                echo "<span class='skill-tag'>" . trim($s) . "</span>";
+                                                            }
+
+                                                            if (count($skills) > 3) {
+                                                                echo "<span class='skill-more'>+" . (count($skills)-3) . "</span>";
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </td>
-                                                    <td class="text-end"><a href=""><i class="fas fa-eye me-2"></i> Detail</a></td>
+
+                                                    <!-- DETAIL -->
+                                                    <td class="text-end">
+                                                        <a data-bs-toggle="collapse" href="#detail<?= $no ?>">
+                                                            <i class="fas fa-eye me-2"></i> Detail
+                                                        </a>
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Back End</td>
-                                                    <td>
-                                                        <div class="skill-wrapper">
-                                                            <span class="skill-tag">PHP</span>
-                                                            <span class="skill-tag">CSS</span>
-                                                            <span class="skill-tag">JS</span>
+
+                                                <!-- ACCORDION -->
+                                                <tr class="collapse-row">
+                                                    <td colspan="3" class="p-0">
+                                                        <div class="collapse" id="detail<?= $no ?>">
+                                                            <div class="p-3 bg-dark ">
+
+                                                                <div class="skill-wrapper mb-2">
+                                                                    <?php
+                                                                    foreach ($skills as $s) {
+                                                                        echo "<span class='skill-tag'>" . trim($s) . "</span>";
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <div class="text-end">
+                                                                    <a href="proses/hapus_skill.php?id=<?= $row['id']; ?>"
+                                                                    onclick="return confirm('Hapus data ini?')"
+                                                                    class="text-danger">
+                                                                    <i class="fas fa-trash me-2"></i> Hapus
+                                                                    </a>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
                                                     </td>
-                                                    <td class="text-end"><a href=""><i class="fas fa-eye me-2"></i> Detail</a></td>
                                                 </tr>
-                                            </tbody>
+
+                                                <?php } ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -715,6 +816,69 @@ $current = mysqli_fetch_assoc($currentStatus);
       </div>
     </div>
 
+    <!-- HOBI MODAL -->
+     <div class="modal fade" id="hobiModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <form action="proses/tambah_hobi.php" method="POST">
+
+                <div class="modal-header">
+                <h5 class="modal-title">Tambah Hobi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                <div class="mb-3">
+                    <label>Nama Hobi</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                </div>
+
+                <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILL MODAL -->
+     <div class="modal fade" id="skillModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <form action="proses/tambah_skill.php" method="POST">
+
+                <div class="modal-header">
+                <h5 class="modal-title">Tambah Skill</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                <div class="mb-3">
+                    <label>Kategori</label>
+                    <input type="text" name="name" class="form-control" placeholder="Contoh: Frontend" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Tag Skill (pisahkan dengan koma)</label>
+                    <input type="text" name="skill" class="form-control" placeholder="HTML, CSS, JavaScript" required>
+                </div>
+
+                </div>
+
+                <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Article Modal -->
     <div class="modal fade" id="articleModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -779,6 +943,120 @@ $current = mysqli_fetch_assoc($currentStatus);
       </div>
     </div>
 
+    <!-- CREATE CERTIFICATE -->
+    <div class="modal fade" id="createCertModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4">
+        
+        <div class="modal-header">
+            <h5 class="modal-title">Tambah Sertifikasi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <form action="proses/cert_create.php" method="POST" enctype="multipart/form-data">
+            <div class="modal-body">
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                <label>Title</label>
+                <input type="text" name="tittle" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                <label>Issuer</label>
+                <input type="text" name="issuer" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                <label>Year</label>
+                <input type="number" name="year" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                <label>Category</label>
+                <input type="text" name="category" class="form-control">
+                </div>
+
+                <div class="col-md-12 mb-3">
+                <label>Image</label>
+                <input type="file" name="img" class="form-control">
+                </div>
+
+                <div class="col-md-12 mb-3">
+                <label>Description</label>
+                <textarea name="desc" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- UPDATE CERTIFICATE -->
+    <div class="modal fade" id="modalEditCert" tabindex="-1">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <form action="proses/cert_update.php" method="POST" enctype="multipart/form-data">
+
+    <input type="hidden" name="id" id="edit-id">
+
+    <div class="modal-header">
+    <h5>Edit Sertifikasi</h5>
+    <button class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+
+    <div class="modal-body">
+
+    <input type="text" name="tittle" id="edit-tittle" class="form-control mb-2">
+    <input type="text" name="issuer" id="edit-issuer" class="form-control mb-2">
+    <input type="number" name="year" id="edit-year" class="form-control mb-2">
+
+    <textarea name="desc" id="edit-desc" class="form-control mb-2"></textarea>
+
+    <input type="text" name="category" id="edit-category" class="form-control mb-2">
+
+    </div>
+
+    <div class="modal-footer">
+    <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+    <button class="btn btn-warning">Update</button>
+    </div>
+
+    </form>
+
+    </div>
+    </div>
+    </div>
+
+    <!-- DELETE CERTIFICATE -->
+<div class="modal fade" id="modalDeleteCert" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content text-center p-3">
+
+<h5>Yakin hapus?</h5>
+<p id="delete-tittle"></p>
+
+<a href="#" id="delete-link" class="btn btn-danger">
+Hapus
+</a>
+
+<button class="btn btn-secondary mt-2" data-bs-dismiss="modal">
+Batal
+</button>
+
+</div>
+</div>
+</div>
+
     <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -799,4 +1077,39 @@ $current = mysqli_fetch_assoc($currentStatus);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Admin JS -->
 </body>
+
+<script>
+
+// ================= EDIT =================
+const editModal = document.getElementById('modalEditCert');
+
+editModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+
+    document.getElementById('edit-id').value = button.getAttribute('data-id');
+    document.getElementById('edit-tittle').value = button.getAttribute('data-tittle');
+    document.getElementById('edit-issuer').value = button.getAttribute('data-issuer');
+    document.getElementById('edit-year').value = button.getAttribute('data-year');
+    document.getElementById('edit-desc').value = button.getAttribute('data-desc');
+    document.getElementById('edit-category').value = button.getAttribute('data-category');
+});
+
+
+// ================= DELETE =================
+const deleteModal = document.getElementById('modalDeleteCert');
+
+deleteModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+
+    const id = button.getAttribute('data-id');
+    const tittle = button.getAttribute('data-tittle');
+
+    document.getElementById('delete-tittle').innerText = tittle;
+
+    document.getElementById('delete-link').href = 
+        "proses/cert_delete.php?id=" + id;
+});
+
+</script>
+
 </html>
