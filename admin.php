@@ -2,6 +2,18 @@
  <?php
 include 'config/connect.php';
 
+// job
+$data = mysqli_query($conn, "SELECT * FROM job ORDER BY id ASC LIMIT 2");
+
+$jobs = [];
+while ($row = mysqli_fetch_assoc($data)) {
+    $jobs[] = $row;
+}
+
+// about
+$aboutQuery = mysqli_query($conn, "SELECT * FROM about LIMIT 1");
+$about = mysqli_fetch_assoc($aboutQuery);
+
 // ambil semua status
 $statusList = mysqli_query($conn, "SELECT * FROM status");
 
@@ -164,16 +176,18 @@ $current = mysqli_fetch_assoc($currentStatus);
                                 <div class="stat-card">
                                     <div class="container">
                                         <div class="row pb-4">
-                                            <h3>About Me</h3>
+                                        <h3>About Me</h3>
                                         </div>
+
                                         <div class="row g-3">
-                                            <p>Deskripsi</p>
-                                            <p>15 Maret 2002</p>
-                                            <p>Bagus Batra Buana Hadi Is, A.Md.Kom</p>
-                                            <p>Address</p>
-                                            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#aboutModal">
-                                                <i class="fas fa-pencil me-2"></i> Edit
-                                            </button>
+                                        <p><?= $about['desc'] ?? 'Belum ada deskripsi' ?></p>
+                                        <p><?= $about['birthday'] ? date('d F Y', strtotime($about['birthday'])) : '-' ?></p>
+                                        <p><?= $about['name'] ?? '-' ?></p>
+                                        <p><?= $about['address'] ?? '-' ?></p>
+
+                                        <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                                            <i class="fas fa-pencil me-2"></i> Edit
+                                        </button>
                                         </div>
                                     </div>
                                 </div>
@@ -205,8 +219,9 @@ $current = mysqli_fetch_assoc($currentStatus);
                                             <h3>Job</h3>
                                         </div>
                                         <div class="row g-3">
-                                            <p>Pekerjaan 1</p>
-                                            <p>Pekerjaan 2</p>
+                                            <p><?= $jobs[0]['name'] ?? 'Kosong'; ?></p>
+                                            <p><?= $jobs[1]['name'] ?? 'Kosong'; ?></p>
+
                                             <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#jobModal">
                                                 <i class="fas fa-pencil me-2"></i> Edit
                                             </button>
@@ -533,31 +548,53 @@ $current = mysqli_fetch_assoc($currentStatus);
 
     <!-- Admin Modals -->
     <!-- Edit About Modal -->
-    <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit About</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="aboutForm">
-              <div class="mb-3">
-                <label class="form-label">Nama</label>
-                <input type="text" class="form-control" id="aboutName" placeholder="Masukkan nama">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Deskripsi</label>
-                <textarea class="form-control" rows="4" id="aboutDesc" placeholder="Masukkan deskripsi singkat"></textarea>
-              </div>
+    <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+            <form method="POST" action="proses/update_about.php">
+
+                <div class="modal-header">
+                <h5 class="modal-title">Edit About</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                <div class="mb-3">
+                    <label>Nama</label>
+                    <input type="text" name="name" class="form-control"
+                    value="<?= $about['name'] ?? '' ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label>Deskripsi</label>
+                    <textarea name="desc" class="form-control"><?= $about['desc'] ?? '' ?></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Tanggal Lahir</label>
+                    <input type="date" name="birthday" class="form-control"
+                    value="<?= $about['birthday'] ?? '' ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label>Alamat</label>
+                    <input type="text" name="address" class="form-control"
+                    value="<?= $about['address'] ?? '' ?>">
+                </div>
+
+                </div>
+
+                <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-primary" id="saveAbout">Simpan</button>
-          </div>
+
+            </div>
         </div>
-      </div>
     </div>
 
         <!-- Status Modal -->
@@ -597,31 +634,43 @@ $current = mysqli_fetch_assoc($currentStatus);
     </div>
 
     <!-- Job Modal -->
-    <div class="modal fade" id="jobModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Edit Job</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="jobForm">
-              <div class="mb-3">
-                <label class="form-label">Pekerjaan</label>
-                <input type="text" class="form-control" id="jobTitle" placeholder="Masukkan nama pekerjaan">
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Detail</label>
-                <textarea class="form-control" rows="3" id="jobDetail" placeholder="Masukkan deskripsi pekerjaan"></textarea>
-              </div>
+    <div class="modal fade" id="jobModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <form action="proses/update_job.php" method="POST">
+
+                <div class="modal-header">
+                <h5 class="modal-title">Edit Job</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                <input type="hidden" name="id1" value="<?= $jobs[0]['id'] ?? '' ?>">
+                <input type="hidden" name="id2" value="<?= $jobs[1]['id'] ?? '' ?>">
+
+                <div class="mb-3">
+                    <label>Job 1</label>
+                    <input type="text" name="job1" class="form-control"
+                        value="<?= $jobs[0]['name'] ?? '' ?>">
+                </div>
+
+                <div class="mb-3">
+                    <label>Job 2</label>
+                    <input type="text" name="job2" class="form-control"
+                        value="<?= $jobs[1]['name'] ?? '' ?>">
+                </div>
+
+                </div>
+
+                <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-primary">Simpan</button>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Project Modal -->
