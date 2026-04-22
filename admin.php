@@ -224,32 +224,99 @@ $current = mysqli_fetch_assoc($currentStatus);
                             <!-- TENGAH -->
                         <div class="row g-3 mt-1 mb-3">
                             <div class="col-md-6">
+                                <?php
+                                $exp = mysqli_query($conn, "SELECT * FROM experience ORDER BY start_year DESC");
+                                ?>
+
                                 <div class="stat-card">
-                                     <div class="container">
+                                    <div class="container">
+
+                                        <!-- HEADER -->
                                         <div class="row pb-4 text-center">
                                             <h3 class="pb-3">Pengalaman Kerja</h3>
-                                            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#experienceModal">
-                                                <i class="fas fa-plus me-2"></i> <a href="">Tambah</a>
+
+                                            <!-- FIX BUTTON -->
+                                            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#modalCreateExp">
+                                                <i class="fas fa-plus me-2"></i> Tambah
                                             </button>
                                         </div>
-                                        <div class="row g-3">
-                                            <table class="mini-table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Pekerjaan 1</td>
-                                                    <td>PT Maju Jaya</td>
-                                                    <td>2022 -2025</td>
-                                                    <td class="text-end"><a href="#"><i class="fas fa-eye me-2"></i> Detail</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pekerjaan 2</td>
-                                                    <td>PT Terbaik</td>
-                                                    <td>2022 -2025</td>
-                                                    <td class="text-end"><a href="#"><i class="fas fa-eye me-2"></i> Detail</a></td>
-                                                </tr>
-                                            </tbody>
+
+                                        <!-- TABLE -->
+                                        <div class="row g-3 table-responsive">
+                                            <table class="mini-table table">
+                                                <tbody>
+
+                                                <?php while($row = mysqli_fetch_assoc($exp)) { ?>
+
+                                                    <tr>
+                                                        <td><b><?= $row['position']; ?></b></td>
+                                                        <td><?= $row['company']; ?></td>
+
+                                                        <!-- FORMAT TAHUN -->
+                                                        <td>
+                                                            <?= $row['start_year']; ?> - 
+                                                            <?= $row['end_year'] ? $row['end_year'] : 'Sekarang'; ?>
+                                                        </td>
+
+                                                        <!-- AKSI -->
+                                                        <td class="text-end">
+
+                                                            <!-- DETAIL -->
+                                                            <a data-bs-toggle="collapse" href="#exp<?= $row['id']; ?>">
+                                                                <i class="fas fa-eye me-2"></i> Detail
+                                                            </a>
+
+                                                            <!-- EDIT -->
+                                                            <button 
+                                                            class="btn btn-warning btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modalEditExp"
+
+                                                            data-id="<?= $row['id']; ?>"
+                                                            data-position="<?= $row['position']; ?>"
+                                                            data-company="<?= $row['company']; ?>"
+                                                            data-start="<?= $row['start_year']; ?>"
+                                                            data-end="<?= $row['end_year']; ?>"
+                                                            data-jobdesk="<?= $row['jobdesk']; ?>"
+                                                            >
+                                                            Edit
+                                                            </button>
+
+                                                            <!-- DELETE -->
+                                                            <button 
+                                                            class="btn btn-danger btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modalDeleteExp"
+
+                                                            data-id="<?= $row['id']; ?>"
+                                                            data-position="<?= $row['position']; ?>"
+                                                            >
+                                                            Hapus
+                                                            </button>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- DETAIL COLLAPSE -->
+                                                    <tr class="collapse" id="exp<?= $row['id']; ?>">
+                                                        <td colspan="4">
+                                                            <ul class="mb-0">
+                                                            <?php
+                                                            $jobs = explode(',', $row['jobdesk']);
+                                                            foreach ($jobs as $job) {
+                                                                echo '<li>' . trim($job) . '</li>';
+                                                            }
+                                                            ?>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+
+                                                <?php } ?>
+
+                                                </tbody>
                                             </table>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -315,7 +382,7 @@ $current = mysqli_fetch_assoc($currentStatus);
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <a data-bs-toggle="collapse" href="#cert<?= $no ?>" class="text-primary">
+                                                    <a data-bs-toggle="collapse" href="#cert<?= $no ?>" class="fw-bold">
                                                         <?= $row['tittle']; ?>
                                                     </a>
                                                 </td>
@@ -1038,24 +1105,24 @@ $current = mysqli_fetch_assoc($currentStatus);
     </div>
 
     <!-- DELETE CERTIFICATE -->
-<div class="modal fade" id="modalDeleteCert" tabindex="-1">
-<div class="modal-dialog modal-dialog-centered">
-<div class="modal-content text-center p-3">
+    <div class="modal fade" id="modalDeleteCert" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
 
-<h5>Yakin hapus?</h5>
-<p id="delete-tittle"></p>
+    <h5>Yakin hapus?</h5>
+    <p id="delete-tittle"></p>
 
-<a href="#" id="delete-link" class="btn btn-danger">
-Hapus
-</a>
+    <a href="#" id="delete-link" class="btn btn-danger">
+    Hapus
+    </a>
 
-<button class="btn btn-secondary mt-2" data-bs-dismiss="modal">
-Batal
-</button>
+    <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">
+    Batal
+    </button>
 
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </div>
 
     <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
@@ -1071,6 +1138,111 @@ Batal
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="modal fade" id="modalCreateExp" tabindex="-1">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <form action="proses/exp_create.php" method="POST">
+
+    <div class="modal-header">
+    <h5>Tambah Pengalaman</h5>
+    <button class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+
+    <div class="modal-body">
+
+    <input type="text" name="position" class="form-control mb-2" placeholder="Posisi" required>
+
+    <input type="text" name="company" class="form-control mb-2" placeholder="Perusahaan" required>
+
+    <div class="row">
+        <div class="col">
+            <input type="number" name="start_year" class="form-control mb-2" placeholder="Tahun Mulai" required>
+        </div>
+        <div class="col">
+            <input type="number" name="end_year" class="form-control mb-2" placeholder="Tahun Selesai (opsional)">
+        </div>
+    </div>
+
+    <textarea name="jobdesk" class="form-control mb-2" placeholder="Jobdesk" required></textarea>
+
+    </div>
+
+    <div class="modal-footer">
+    <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+    <button class="btn btn-primary">Simpan</button>
+    </div>
+
+    </form>
+
+    </div>
+    </div>
+    </div>
+
+
+    <div class="modal fade" id="modalEditExp" tabindex="-1">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <form action="proses/exp_update.php" method="POST">
+
+    <input type="hidden" name="id" id="edit-id">
+
+    <div class="modal-header">
+    <h5>Edit Pengalaman</h5>
+    <button class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+
+    <div class="modal-body">
+
+    <input type="text" name="position" id="edit-position" class="form-control mb-2">
+
+    <input type="text" name="company" id="edit-company" class="form-control mb-2">
+
+    <div class="row">
+        <div class="col">
+            <input type="number" name="start_year" id="edit-start" class="form-control mb-2">
+        </div>
+        <div class="col">
+            <input type="number" name="end_year" id="edit-end" class="form-control mb-2">
+        </div>
+    </div>
+
+    <textarea name="jobdesk" id="edit-jobdesk" class="form-control mb-2"></textarea>
+
+    </div>
+
+    <div class="modal-footer">
+    <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+    <button class="btn btn-warning">Update</button>
+    </div>
+
+    </form>
+
+    </div>
+    </div>
+    </div>
+
+
+    <div class="modal fade" id="modalDeleteExp" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+
+    <h5>Yakin hapus?</h5>
+    <p id="delete-position"></p>
+
+    <a href="#" id="delete-link-exp" class="btn btn-danger">
+    Hapus
+    </a>
+
+    <button class="btn btn-secondary mt-2" data-bs-dismiss="modal">
+    Batal
+    </button>
+
+    </div>
+    </div>
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->
@@ -1108,6 +1280,40 @@ deleteModal.addEventListener('show.bs.modal', function (event) {
 
     document.getElementById('delete-link').href = 
         "proses/cert_delete.php?id=" + id;
+});
+
+</script>
+
+<script>
+
+// ================= EDIT =================
+const editExp = document.getElementById('modalEditExp');
+
+editExp.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+
+    document.getElementById('edit-id').value = button.getAttribute('data-id');
+    document.getElementById('edit-position').value = button.getAttribute('data-position');
+    document.getElementById('edit-company').value = button.getAttribute('data-company');
+    document.getElementById('edit-start').value = button.getAttribute('data-start');
+    document.getElementById('edit-end').value = button.getAttribute('data-end');
+    document.getElementById('edit-jobdesk').value = button.getAttribute('data-jobdesk');
+});
+
+
+// ================= DELETE =================
+const deleteExp = document.getElementById('modalDeleteExp');
+
+deleteExp.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+
+    const id = button.getAttribute('data-id');
+    const position = button.getAttribute('data-position');
+
+    document.getElementById('delete-position').innerText = position;
+
+    document.getElementById('delete-link-exp').href =
+        "proses/exp_delete.php?id=" + id;
 });
 
 </script>
